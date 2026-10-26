@@ -121,15 +121,8 @@ body {
 }
 
 /* ===================================================
-   Страницы Одиночного Жанра (Без скролла на 1 экран)
+   Страницы Одиночного Жанра
    =================================================== */
-.no-scroll-body {
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
 .single-screen-container {
   flex: 1;
   max-width: 1200px;
@@ -138,7 +131,7 @@ body {
   padding: 1rem 2rem 1.5rem 2rem;
   display: flex;
   flex-direction: column;
-  min-height: 0; /* Позволяет контейнеру правильное сжатие */
+  min-height: 0;
 }
 
 .page-title {
@@ -148,73 +141,17 @@ body {
   flex-shrink: 0;
 }
 
-/* Строгое ограничение сетки 2х2 по высоте экрана */
 .game-grid-single {
   flex: 1;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr)); /* minmax(0, 1fr) предотвращает раздувание строк */
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 1rem;
-  min-height: 0; /* Ключевое свойство для CSS Grid */
-}
-
-/* Карточка */
-.card {
-  background-color: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  min-height: 0; /* Позволяет карточке сжиматься под размер ячейки */
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  border-color: #38bdf8;
-}
-
-/* Картинка автоматически подстраивается под оставшуюся высоту карточки */
-.card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  flex: 1;
   min-height: 0;
 }
 
-.card-info {
-  padding: 0.6rem 1rem;
-  background-color: #1e293b;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0; /* Фиксирует высоту блока с названием */
-}
-
-.card-info h3 {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #f8fafc;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.rating {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #f59e0b;
-  background-color: rgba(245, 158, 11, 0.1);
-  padding: 0.2rem 0.5rem;
-  border-radius: 6px;
-}
-
 /* ===================================================
-   Карточка Игры (Квадратная, минималистичная)
+   Карточка Игры
    =================================================== */
 .card {
   background-color: #1e293b;
@@ -341,6 +278,150 @@ body {
 }
 
 /* ===================================================
+   Форма Подписки / Регистрации (Dark Theme)
+   =================================================== */
+.subscription-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 0;
+}
+
+.form-card {
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 1.25rem 1.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 440px;
+}
+
+.form-card h2 {
+  margin-bottom: 0.75rem;
+  color: #f8fafc;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 0.65rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background-color: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: #f8fafc;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder {
+  color: #64748b;
+}
+
+.form-group input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+.form-group input.error {
+  border-color: #ef4444;
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
+  display: none;
+}
+
+/* Компактные горизонатльные кнопки выбора жанра */
+.radio-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.radio-option {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #0f172a;
+  padding: 0.45rem 0.25rem;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.radio-option:hover {
+  border-color: #38bdf8;
+  background-color: #1e293b;
+}
+
+.radio-option input[type="radio"] {
+  accent-color: #38bdf8;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 0.65rem;
+  background-color: #38bdf8;
+  color: #0f172a;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 0.6rem;
+}
+
+button[type="submit"]:hover {
+  background-color: #0284c7;
+  color: #ffffff;
+}
+
+.success-message {
+  display: none;
+  margin-top: 0.6rem;
+  padding: 0.5rem;
+  background-color: rgba(16, 185, 129, 0.15);
+  border: 1px solid #10b981;
+  color: #34d399;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ===================================================
    Адаптивность (Mobile Support)
    =================================================== */
 @media (max-width: 768px) {
@@ -354,5 +435,8 @@ body {
   .game-grid-single {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+  }
+  .subscription-container {
+    margin: 1.5rem auto;
   }
 }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подписка - GAMEHUB</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Навигационная шапка -->
+  <header class="navbar">
+    <a href="index.html" class="logo">GAME<span>HUB</span></a>
+    <nav class="nav-links">
+      <a href="podpiska.html" class="active">Подписка</a>
+      <a href="index.html">Все жанры</a>
+      <a href="rpg.html">RPG</a>
+      <a href="action.html">Action</a>
+      <a href="strategy.html">Strategy</a>
+    </nav>
+  </header>
+
+  <!-- Контейнер формы -->
+  <main class="subscription-container">
+    <div class="form-card">
+      <h2>Анкета игрока</h2>
+      <form id="userForm" novalidate>
+          
+          <!-- Фамилия -->
+          <div class="form-group">
+              <label for="lastName">Фамилия</label>
+              <input type="text" id="lastName" placeholder="Иванов">
+              <div class="error-message" id="lastNameError">Введите корректную фамилию (только буквы).</div>
+          </div>
+
+          <!-- Имя -->
+          <div class="form-group">
+              <label for="firstName">Имя</label>
+              <input type="text" id="firstName" placeholder="Иван">
+              <div class="error-message" id="firstNameError">Введите корректное имя (только буквы).</div>
+          </div>
+
+          <!-- Номер телефона -->
+          <div class="form-group">
+              <label for="phone">Номер телефона</label>
+              <input type="tel" id="phone" placeholder="+996 555 123 456">
+              <div class="error-message" id="phoneError">Введите корректный номер телефона.</div>
+          </div>
+
+          <!-- Почта -->
+          <div class="form-group">
+              <label for="email">Электронная почта</label>
+              <input type="email" id="email" placeholder="example@mail.com">
+              <div class="error-message" id="emailError">Введите корректный email (напр. user@site.com).</div>
+          </div>
+
+          <!-- Любимый жанр -->
+          <div class="form-group">
+              <label>Любимый жанр</label>
+              <div class="radio-group">
+                  <label class="radio-option">
+                      <input type="radio" name="genre" value="РПГ"> RPG
+                  </label>
+                  <label class="radio-option">
+                      <input type="radio" name="genre" value="Шутеры"> Шутеры
+                  </label>
+                  <label class="radio-option">
+                      <input type="radio" name="genre" value="Стратегии"> Стратегии
+                  </label>
+              </div>
+              <div class="error-message" id="genreError">Пожалуйста, выберите один из жанров.</div>
+          </div>
+
+          <button type="submit">Отправить</button>
+          <div class="success-message" id="successMessage">Форма успешно заполнена!</div>
+      </form>
+    </div>
+  </main>
+    <script src="podpiska.js"></script>
+</body>
+</html>
