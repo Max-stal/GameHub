@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RPG Игры - GAMEPORTAL</title>
+  <title>RPG Игры - GAMEHUB</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="no-scroll-body">
+<body class="no-scroll-body" data-page="rpg">
 
   <header class="navbar">
-    <a href="index.html" class="logo">GAME<span>PORTAL</span></a>
+    <a href="index.html" class="logo">GAME<span>HUB</span></a>
     <nav class="nav-links">
+      <a href="podpiska.html">Подписка</a>
       <a href="index.html">Все жанры</a>
       <a href="rpg.html" class="active">RPG</a>
       <a href="action.html">Action</a>
@@ -20,37 +21,9 @@
 
   <main class="single-screen-container">
     <h1 class="page-title">Жанр: Ролевые игры (RPG)</h1>
-    <div class="game-grid-single">
-      <a href="witcher3.html" class="card">
-        <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=600&q=80" alt="The Witcher 3">
-        <div class="card-info">
-          <h3>The Witcher 3</h3>
-          <span class="rating">⭐ 9.8</span>
-        </div>
-      </a>
-      <a href="cyberpunk.html" class="card">
-        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Cyberpunk 2077">
-        <div class="card-info">
-          <h3>Cyberpunk 2077</h3>
-          <span class="rating">⭐ 8.9</span>
-        </div>
-      </a>
-      <a href="eldenring.html" class="card">
-        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Elden Ring">
-        <div class="card-info">
-          <h3>Elden Ring</h3>
-          <span class="rating">⭐ 9.6</span>
-        </div>
-      </a>
-      <a href="skyrim.html" class="card">
-        <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" alt="TES V: Skyrim">
-        <div class="card-info">
-          <h3>TES V: Skyrim</h3>
-          <span class="rating">⭐ 9.5</span>
-        </div>
-      </a>
-    </div>
+    <div id="genreGrid" class="game-grid-single"></div>
   </main>
 
+  <script src="games.js"></script>
 </body>
 </html>

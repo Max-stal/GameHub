@@ -3,54 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Action Игры - GAMEPORTAL</title>
+  <title>RPG Игры - GAMEHUB</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="no-scroll-body">
+<body class="no-scroll-body" data-page="action">
 
   <header class="navbar">
-    <a href="index.html" class="logo">GAME<span>PORTAL</span></a>
+    <a href="index.html" class="logo">GAME<span>HUB</span></a>
     <nav class="nav-links">
+      <a href="podpiska.html">Подписка</a>
       <a href="index.html">Все жанры</a>
-      <a href="rpg.html">RPG</a>
-      <a href="action.html" class="active">Action</a>
+      <a href="rpg.html" class="active">RPG</a>
+      <a href="action.html">Action</a>
       <a href="strategy.html">Strategy</a>
     </nav>
   </header>
 
   <main class="single-screen-container">
-    <h1 class="page-title">Жанр: Action / Шутеры</h1>
-    <div class="game-grid-single">
-      <a href="doom.html" class="card">
-        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Doom Eternal">
-        <div class="card-info">
-          <h3>Doom Eternal</h3>
-          <span class="rating">⭐ 9.2</span>
-        </div>
-      </a>
-      <a href="cod.html" class="card">
-        <img src="https://images.unsplash.com/photo-1552824722-680076a52026?auto=format&fit=crop&w=600&q=80" alt="CoD: Warzone">
-        <div class="card-info">
-          <h3>CoD: Warzone</h3>
-          <span class="rating">⭐ 8.5</span>
-        </div>
-      </a>
-      <a href="cs2.html" class="card">
-        <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=600&q=80" alt="CS2">
-        <div class="card-info">
-          <h3>Counter-Strike 2</h3>
-          <span class="rating">⭐ 8.8</span>
-        </div>
-      </a>
-      <a href="apex.html" class="card">
-        <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=600&q=80" alt="Apex Legends">
-        <div class="card-info">
-          <h3>Apex Legends</h3>
-          <span class="rating">⭐ 8.7</span>
-        </div>
-      </a>
-    </div>
+    <h1 class="page-title">Жанр: Ролевые игры (RPG)</h1>
+    <div id="genreGrid" class="game-grid-single"></div>
   </main>
 
+  <script src="games.js"></script>
 </body>
 </html>

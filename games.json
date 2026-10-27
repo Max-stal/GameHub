@@ -1,0 +1,134 @@
+[
+  {
+    "id": "witcher3",
+    "title": "The Witcher 3: Wild Hunt",
+    "category": "rpg",
+    "genre": "RPG / Ролевые игры",
+    "rating": 9.8,
+    "image": "images/witcher3.webp",
+    "developer": "CD Projekt RED",
+    "year": 2015,
+    "description": "Культовая ролевая игра с открытым миром. Вы играете за Геральта из Ривии, профессионального охотника на монстров, отправляющегося на поиски Дитя Предначертания."
+  },
+  {
+    "id": "cyberpunk",
+    "title": "Cyberpunk 2077",
+    "category": "rpg",
+    "genre": "Action-RPG",
+    "rating": 8.9,
+    "image": "images/cyberpunk2077.webp",
+    "developer": "CD Projekt RED",
+    "year": 2020,
+    "description": "Приключенческая экшен-RPG, действие которой происходит в мегаполисе Найт-Сити, где власть, роскошь и модификации тела ценятся выше всего."
+  },
+  {
+    "id": "eldenring",
+    "title": "Elden Ring",
+    "category": "rpg",
+    "genre": "Action-RPG",
+    "rating": 9.6,
+    "image": "images/eldenring.jpg",
+    "developer": "FromSoftware",
+    "year": 2022,
+    "description": "Эпическое фэнтезийное приключение в огромном бесшовном мире Междуземья от создателей Dark Souls и Джорджа Мартина."
+  },
+  {
+    "id": "skyrim",
+    "title": "TES V: Skyrim",
+    "category": "rpg",
+    "genre": "RPG",
+    "rating": 9.5,
+    "image": "images/skyrim.webp",
+    "developer": "Bethesda Game Studios",
+    "year": 2011,
+    "description": "Легендарная открытая ролевая игра, где вы — Драконорожденный, спасающий провинцию Скайрим от древних драконов."
+  },
+  {
+    "id": "doom",
+    "title": "Doom Eternal",
+    "category": "action",
+    "genre": "Шутер от первого лица",
+    "rating": 9.2,
+    "image": "images/doom.jpg",
+    "developer": "id Software",
+    "year": 2020,
+    "description": "Динамичный скоростной шутер, где Палач Рока сражается с полчищами демонов, заполнивших Землю."
+  },
+  {
+    "id": "cod",
+    "title": "CoD: Warzone",
+    "category": "action",
+    "genre": "Королевская битва",
+    "rating": 8.5,
+    "image": "images/cod.jpg",
+    "developer": "Infinity Ward",
+    "year": 2020,
+    "description": "Бесплатная динамичная королевская битва во вселенной Call of Duty с поддержкой сотен игроков на огромной карте."
+  },
+  {
+    "id": "cs2",
+    "title": "Counter-Strike 2",
+    "category": "action",
+    "genre": "Тактический шутер",
+    "rating": 8.8,
+    "image": "images/cs2.webp",
+    "developer": "Valve",
+    "year": 2023,
+    "description": "Главный командный тактический шутер на движке Source 2 с реалистичным дымом, обновлёнными картами и физикой."
+  },
+  {
+    "id": "apex",
+    "title": "Apex Legends",
+    "category": "action",
+    "genre": "Hero Shooter / Battle Royale",
+    "rating": 8.7,
+    "image": "images/apex.png",
+    "developer": "Respawn Entertainment",
+    "year": 2019,
+    "description": "Командный шутер в жанре королевской битвы с уникальными персонажами и способностями."
+  },
+  {
+    "id": "civ6",
+    "title": "Civilization VI",
+    "category": "strategy",
+    "genre": "Пошаговая стратегия (4X)",
+    "rating": 9.0,
+    "image": "images/civ6.jpg",
+    "developer": "Firaxis Games",
+    "year": 2016,
+    "description": "Пошаговая стратегия, где вы создаете величайшую империю и проведёте её через века от каменного века до космической эры."
+  },
+  {
+    "id": "dota2",
+    "title": "Dota 2",
+    "category": "strategy",
+    "genre": "MOBA",
+    "rating": 8.9,
+    "image": "images/dota2.webp",
+    "developer": "Valve",
+    "year": 2013,
+    "description": "Легендарная многопользовательская командная стратегия с более чем сотней уникальных героев."
+  },
+  {
+    "id": "starcraft2",
+    "title": "StarCraft II",
+    "category": "strategy",
+    "genre": "Стратегия в реальном времени (RTS)",
+    "rating": 9.4,
+    "image": "images/starcraft2.jpeg",
+    "developer": "Blizzard Entertainment",
+    "year": 2010,
+    "description": "Одна из величайших стратегий в реальном времени, описывающая войну между терранами, зергами и протоссами."
+  },
+  {
+    "id": "heroes3",
+    "title": "Heroes III",
+    "category": "strategy",
+    "genre": "Пошаговая стратегия",
+    "rating": 9.9,
+    "image": "images/heroes3.jpg",
+    "developer": "New World Computing",
+    "year": 1999,
+    "description": "Бессмертная классика пошаговых стратегий с исследованием карты, замками, магией и тактическими боями."
+  }
+]

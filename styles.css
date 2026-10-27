@@ -1,27 +1,29 @@
 /* ===================================================
-   Общие стили и Сброс (Reset)
+   1. Сброс стилей и базовая тема
    =================================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: #0f172a; /* Тёмный нейтральный фон */
   color: #f8fafc;
   min-height: 100vh;
 }
 
-/* Стили для фиксированных жанровых страниц без скролла */
+/* Фиксированный экран без скролла для одностраничных жанров */
 .no-scroll-body {
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 /* ===================================================
-   Шапка (Navbar)
+   2. Шапка (Navbar)
    =================================================== */
 .navbar {
   height: 64px;
@@ -31,6 +33,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+  flex-shrink: 0;
 }
 
 .logo {
@@ -67,7 +70,7 @@ body {
 }
 
 /* ===================================================
-   Главная страница ("Все жанры")
+   3. Главная страница ("Все жанры")
    =================================================== */
 .main-container {
   max-width: 1200px;
@@ -78,7 +81,6 @@ body {
   gap: 3rem;
 }
 
-/* Чёткое разделение жанров */
 .genre-block {
   border-left: 4px solid #38bdf8;
   background-color: rgba(30, 41, 59, 0.4);
@@ -86,9 +88,9 @@ body {
   padding: 1.5rem;
 }
 
-.genre-rpg { border-left-color: #f59e0b; }      /* Янтарный акцент */
-.genre-action { border-left-color: #ef4444; }   /* Красный акцент */
-.genre-strategy { border-left-color: #10b981; } /* Изумрудный акцент */
+.genre-rpg { border-left-color: #f59e0b; }
+.genre-action { border-left-color: #ef4444; }
+.genre-strategy { border-left-color: #10b981; }
 
 .genre-header {
   display: flex;
@@ -113,7 +115,7 @@ body {
   text-decoration: underline;
 }
 
-/* Сетка карточек на главной */
+/* Сетка карточек на главной (4 колонки) */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -121,7 +123,7 @@ body {
 }
 
 /* ===================================================
-   Страницы Одиночного Жанра
+   4. Страницы Жанров (Без скролла на 1 экран)
    =================================================== */
 .single-screen-container {
   flex: 1;
@@ -141,6 +143,7 @@ body {
   flex-shrink: 0;
 }
 
+/* Сетка 2x2 под высоту экрана */
 .game-grid-single {
   flex: 1;
   display: grid;
@@ -151,7 +154,7 @@ body {
 }
 
 /* ===================================================
-   Карточка Игры
+   5. Карточки Игр (Card Component)
    =================================================== */
 .card {
   background-color: #1e293b;
@@ -162,6 +165,7 @@ body {
   color: inherit;
   display: flex;
   flex-direction: column;
+  min-height: 0;
   transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
@@ -184,10 +188,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .card-info h3 {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #f8fafc;
   white-space: nowrap;
@@ -196,7 +201,7 @@ body {
 }
 
 .rating {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: #f59e0b;
   background-color: rgba(245, 158, 11, 0.1);
@@ -205,80 +210,97 @@ body {
 }
 
 /* ===================================================
-   Детальная страница игры
+   6. Модальное окно просмотра игры (Detail View)
    =================================================== */
-.detail-body {
-  min-height: 100vh;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(5px);
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 }
 
-.detail-container {
-  max-width: 900px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
-}
-
-.detail-card {
+.modal-content {
   background-color: #1e293b;
   border: 1px solid #334155;
   border-radius: 16px;
+  max-width: 600px;
+  width: 100%;
   overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  animation: modalFadeIn 0.2s ease-out;
 }
 
-.detail-img {
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 16px;
+  color: #94a3b8;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #38bdf8;
+}
+
+.modal-img {
   width: 100%;
-  height: 350px;
+  height: 250px;
   object-fit: cover;
 }
 
-.detail-content {
-  padding: 2rem;
+.modal-info {
+  padding: 1.5rem;
 }
 
-.back-btn {
-  display: inline-block;
-  color: #38bdf8;
-  text-decoration: none;
-  font-weight: 600;
-  margin-bottom: 1rem;
+.modal-info h2 {
+  font-size: 1.5rem;
+  color: #f8fafc;
+  margin-bottom: 0.4rem;
 }
 
-.back-btn:hover {
-  text-decoration: underline;
-}
-
-.detail-content h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.detail-rating {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  color: #94a3b8;
-}
-
-.detail-rating span {
+.modal-rating {
   color: #f59e0b;
   font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
 }
 
-.meta-info {
-  display: flex;
-  gap: 2rem;
-  background-color: #0f172a;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+.meta-info p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
 }
 
-.description {
-  line-height: 1.6;
+.meta-info span {
   color: #cbd5e1;
 }
 
+.description {
+  margin-top: 0.8rem;
+  line-height: 1.5;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
 /* ===================================================
-   Форма Подписки / Регистрации (Dark Theme)
+   7. Форма Подписки / Регистрации
    =================================================== */
 .subscription-container {
   flex: 1;
@@ -353,7 +375,6 @@ body {
   display: none;
 }
 
-/* Компактные горизонатльные кнопки выбора жанра */
 .radio-group {
   display: flex;
   gap: 0.5rem;
@@ -422,7 +443,7 @@ button[type="submit"]:hover {
 }
 
 /* ===================================================
-   Адаптивность (Mobile Support)
+   8. Адаптивность для мобильных устройств
    =================================================== */
 @media (max-width: 768px) {
   .game-grid {
@@ -436,7 +457,14 @@ button[type="submit"]:hover {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
   }
+}
+
+@media (max-height: 650px), (max-width: 500px) {
+  .no-scroll-body {
+    height: auto;
+    overflow: auto;
+  }
   .subscription-container {
-    margin: 1.5rem auto;
+    padding: 1.5rem 1rem;
   }
 }
