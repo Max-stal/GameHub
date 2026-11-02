@@ -511,7 +511,7 @@ button[type="submit"]:hover {
 .modal-neon-line {
   height: 3px;
   width: 100%;
-  background: linear-gradient(90deg, #38bdf8, #f59e0b, #ef4444, #10b981, #38bdf8);
+  background: linear-gradient(90deg, #622782, #8510f3, #6900a1, #7913a4, #622782);
   background-size: 200% 100%;
   animation: modalNeonFlow 2.5s linear infinite;
   box-shadow: 0 0 8px rgba(56, 189, 248, 0.8), 0 0 16px rgba(245, 158, 11, 0.4);
