@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Рендеринг списков (LIST) в зависимости от страницы
 function renderPageContent() {
-  const pageType = document.body.dataset.page; // rpg, action, strategy, index
+  const pageType = document.body.dataset.page;
 
   if (pageType === 'index') {
     renderGrid('rpgGrid', gamesData.filter(g => g.category === 'rpg'));
@@ -25,13 +25,13 @@ function renderPageContent() {
   }
 }
 
-// Генерация HTML карточек
+// Генерация HTML карточек с передачей индекса для каскадной анимации
 function renderGrid(containerId, games) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  container.innerHTML = games.map(game => `
-    <div class="card" onclick="openDetail('${game.id}')" style="cursor: pointer;">
+  container.innerHTML = games.map((game, index) => `
+    <div class="card" onclick="openDetail('${game.id}')" style="cursor: pointer; --card-index: ${index};">
       <img src="${game.image}" alt="${game.title}">
       <div class="card-info">
         <h3>${game.title}</h3>
@@ -41,13 +41,14 @@ function renderGrid(containerId, games) {
   `).join('');
 }
 
-// Встраивание HTML модалки (DETAIL)
+// Встраивание HTML модалки с неоновой полосой под изображением
 function initModal() {
   const modalHTML = `
     <div id="gameModal" class="modal">
       <div class="modal-content">
         <span class="close-btn" id="closeModal">&times;</span>
         <img id="modalImg" src="" alt="" class="modal-img">
+        <div class="modal-neon-line"></div>
         <div class="modal-info">
           <h2 id="modalTitle"></h2>
           <p class="modal-rating">Рейтинг: <span id="modalRating"></span></p>
@@ -68,7 +69,7 @@ function initModal() {
   };
 }
 
-// Показ модалки с деталями (DETAIL)
+// Показ модалки с деталями
 function openDetail(id) {
   const game = gamesData.find(g => g.id === id);
   if (!game) return;
