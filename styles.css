@@ -477,6 +477,7 @@ button[type="submit"]:hover {
 .logo span {
   background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc, #38bdf8);
   background-size: 200% auto;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: logoNeonShimmer 3s linear infinite;
