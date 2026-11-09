@@ -9,12 +9,11 @@
 }
 
 body {
-  background-color: #0f172a; /* Тёмный нейтральный фон */
+  background-color: #0f172a;
   color: #f8fafc;
   min-height: 100vh;
 }
 
-/* Фиксированный экран без скролла для одностраничных жанров */
 .no-scroll-body {
   height: 100vh;
   overflow: hidden;
@@ -50,6 +49,7 @@ body {
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 1.5rem;
 }
 
@@ -67,6 +67,23 @@ body {
 .nav-links a.active {
   color: #ffffff;
   background-color: #334155;
+}
+
+.add-game-btn {
+  background-color: #38bdf8;
+  color: #0f172a;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-game-btn:hover {
+  background-color: #0284c7;
+  color: #ffffff;
 }
 
 /* ===================================================
@@ -115,7 +132,6 @@ body {
   text-decoration: underline;
 }
 
-/* Сетка карточек на главной (4 колонки) */
 .game-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -123,7 +139,7 @@ body {
 }
 
 /* ===================================================
-   4. Страницы Жанров (Без скролла на 1 экран)
+   4. Страницы Жанров
    =================================================== */
 .single-screen-container {
   flex: 1;
@@ -143,7 +159,6 @@ body {
   flex-shrink: 0;
 }
 
-/* Сетка 2x2 под высоту экрана */
 .game-grid-single {
   flex: 1;
   display: grid;
@@ -157,6 +172,7 @@ body {
    5. Карточки Игр (Card Component)
    =================================================== */
 .card {
+  position: relative;
   background-color: #1e293b;
   border: 1px solid #334155;
   border-radius: 12px;
@@ -174,12 +190,17 @@ body {
   border-color: #38bdf8;
 }
 
+.card-image-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+
 .card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  flex: 1;
-  min-height: 0;
 }
 
 .card-info {
@@ -210,7 +231,83 @@ body {
 }
 
 /* ===================================================
-   6. Модальное окно просмотра игры (Detail View)
+   6. Выпадающее меню в карточках (Top-Right Menu)
+   =================================================== */
+.card-menu {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 20;
+}
+
+.menu-btn {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(4px);
+  border: 1px solid #334155;
+  color: #f8fafc;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.menu-btn:hover {
+  background-color: #38bdf8;
+  color: #0f172a;
+  border-color: #38bdf8;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 38px;
+  right: 0;
+  background-color: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  min-width: 120px;
+  z-index: 30;
+}
+
+.dropdown-menu.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-item {
+  background: none;
+  border: none;
+  color: #cbd5e1;
+  padding: 0.6rem 1rem;
+  text-align: left;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #334155;
+  color: #38bdf8;
+}
+
+.dropdown-item.delete-item:hover {
+  background-color: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+/* ===================================================
+   7. Модальные окна (Detail & CRUD Form)
    =================================================== */
 .modal {
   display: none;
@@ -299,34 +396,15 @@ body {
   font-size: 0.95rem;
 }
 
-/* ===================================================
-   7. Форма Подписки / Регистрации
-   =================================================== */
-.subscription-container {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  min-height: 0;
+.crud-modal-content {
+  max-width: 520px;
+  padding: 1.5rem;
 }
 
-.form-card {
-  background-color: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 16px;
-  padding: 1.25rem 1.75rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  max-width: 440px;
-}
-
-.form-card h2 {
-  margin-bottom: 0.75rem;
+.crud-modal-content h2 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
   color: #f8fafc;
-  text-align: center;
-  font-size: 1.25rem;
-  font-weight: 700;
 }
 
 .form-group {
@@ -341,9 +419,9 @@ body {
   font-size: 0.85rem;
 }
 
-.form-group input[type="text"],
-.form-group input[type="tel"],
-.form-group input[type="email"] {
+.form-group input,
+.crud-modal-content select,
+.crud-modal-content textarea {
   width: 100%;
   padding: 0.5rem 0.75rem;
   background-color: #0f172a;
@@ -352,98 +430,43 @@ body {
   color: #f8fafc;
   font-size: 0.85rem;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.form-group input::placeholder {
-  color: #64748b;
+.form-row {
+  display: flex;
+  gap: 1rem;
 }
 
+.form-row .form-group {
+  flex: 1;
+}
+
+.crud-modal-content select:focus,
+.crud-modal-content textarea:focus,
 .form-group input:focus {
   border-color: #38bdf8;
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
 }
 
-.form-group input.error {
-  border-color: #ef4444;
-}
-
-.error-message {
-  color: #ef4444;
-  font-size: 0.75rem;
-  margin-top: 0.2rem;
-  display: none;
-}
-
-.radio-group {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 0.3rem;
-}
-
-.radio-option {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-  color: #e2e8f0;
-  font-size: 0.8rem;
-  font-weight: 500;
-  cursor: pointer;
-  background-color: #0f172a;
-  padding: 0.45rem 0.25rem;
-  border-radius: 6px;
-  border: 1px solid #334155;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
-}
-
-.radio-option:hover {
-  border-color: #38bdf8;
-  background-color: #1e293b;
-}
-
-.radio-option input[type="radio"] {
-  accent-color: #38bdf8;
-  width: 14px;
-  height: 14px;
-  cursor: pointer;
-}
-
-button[type="submit"] {
+.submit-crud-btn {
   width: 100%;
   padding: 0.65rem;
-  background-color: #38bdf8;
-  color: #0f172a;
+  background-color: #10b981;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-size: 0.95rem;
   font-weight: 700;
   cursor: pointer;
+  margin-top: 0.5rem;
   transition: background-color 0.2s ease;
-  margin-top: 0.6rem;
 }
 
-button[type="submit"]:hover {
-  background-color: #0284c7;
-  color: #ffffff;
-}
-
-.success-message {
-  display: none;
-  margin-top: 0.6rem;
-  padding: 0.5rem;
-  background-color: rgba(16, 185, 129, 0.15);
-  border: 1px solid #10b981;
-  color: #34d399;
-  border-radius: 6px;
-  text-align: center;
-  font-size: 0.85rem;
-  font-weight: 600;
+.submit-crud-btn:hover {
+  background-color: #059669;
 }
 
 /* ===================================================
-   8. Адаптивность для мобильных устройств
+   8. Адаптивность и Анимации
    =================================================== */
 @media (max-width: 768px) {
   .game-grid {
@@ -459,21 +482,6 @@ button[type="submit"]:hover {
   }
 }
 
-@media (max-height: 650px), (max-width: 500px) {
-  .no-scroll-body {
-    height: auto;
-    overflow: auto;
-  }
-  .subscription-container {
-    padding: 1.5rem 1rem;
-  }
-}
-
-/* ===================================================
-   9. Анимации и визуальные эффекты
-   =================================================== */
-
-/*Переливающийся неон для логотипа GAMEHUB*/
 .logo span {
   background: linear-gradient(90deg, #38bdf8, #818cf8, #c084fc, #38bdf8);
   background-size: 200% auto;
@@ -485,15 +493,10 @@ button[type="submit"]:hover {
 }
 
 @keyframes logoNeonShimmer {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
-/*Поочередное появление карточек (Слева направо, сверху вниз)*/
 .card {
   opacity: 0;
   transform: translateY(25px) scale(0.97);
@@ -508,7 +511,6 @@ button[type="submit"]:hover {
   }
 }
 
-/*Неоновая переливающаяся подсветка под картинкой в модальном окне*/
 .modal-neon-line {
   height: 3px;
   width: 100%;
@@ -519,10 +521,6 @@ button[type="submit"]:hover {
 }
 
 @keyframes modalNeonFlow {
-  0% {
-    background-position: 0% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
 }
